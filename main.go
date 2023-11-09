@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	port := ":8080"
+	port := ":8010"
 
 	// Setup handlers
 	routes.SetupHandlers()
