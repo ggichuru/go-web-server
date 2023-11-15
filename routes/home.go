@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"os"
 	"time"
 )
 
@@ -12,7 +13,8 @@ type Time struct {
 }
 
 func Home(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Welcome Home, to this piece of peace!")
+	hostname, _ := os.Hostname()
+	fmt.Fprintf(w, "Welcome Home, to this piece of peace! \t Hostname: %s", hostname)
 }
 
 func GetTime(w http.ResponseWriter, r *http.Request) {
