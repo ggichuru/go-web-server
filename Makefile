@@ -6,3 +6,10 @@ run-k8s:
 
 run-server:
 	cd go-web-server && minikube service goserver
+
+
+install-helm:
+	helm install -f fireball-helm/values.yaml fireball-release fireball-helm 
+
+upgrade-helm:
+	helm upgrade -f fireball-helm/values.yaml fireball-release fireball-helm

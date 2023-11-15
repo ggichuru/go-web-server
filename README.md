@@ -8,10 +8,18 @@ For this service, we will use a CLI tool to enable interactions. It contains all
     make run-cli
 ```
 
-## Run Service
+## Run Service ( deprecated )
 
 ```bash
     make apply-deployment
 
     make run-server
+```
+
+## Using Helm
+
+```bash
+    make install-helm
+
+    make upgrade-helm
 ```
