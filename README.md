@@ -1,11 +1,9 @@
 # go-web-server
 
-1. Setup Env using docker
+## Run Server CLI tool
 
-   ``` bash
-   make build-image
+For this service, we will use a CLI tool to enable interactions. It contains all commands
 
-2. Run Server ( container )
-
-    ``` bash
-    make run-container
+```bash
+    make run-cli
+```

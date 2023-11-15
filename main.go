@@ -2,7 +2,6 @@ package main
 
 import (
 	"log"
-	"net"
 	"net/http"
 
 	"github.com/ggichuru/go-web-server/routes"
@@ -14,13 +13,9 @@ func main() {
 	// Setup handlers
 	routes.SetupHandlers()
 
-	// Show server is starting with time
+	// Show server is starting
 	log.Println("Server starting... on port:", port)
 
-	listener, err := net.Listen("tcp", port)
-	if err != nil {
-		log.Fatal(err)
-	}
+	log.Fatal(http.ListenAndServe(port, nil))
 
-	http.Serve(listener, nil)
 }

@@ -3,14 +3,18 @@ FROM golang:1.21-alpine
 # Live reload code during development -> bee tool 
 RUN go install github.com/beego/bee/v2@latest
 
-# Configure env
-ENV GO111MODULE=on
-ENV GOFLAGS=-mod=vendor
+# Create a working dir
+WORKDIR /app
 
-# Create a folder inside the container to store the application source code and make it active
-ENV APP_HOME /go/src/go-web-server
-RUN mkdir -p $APP_HOME
-WORKDIR $APP_HOME
+# Copy go mod and sum files
+COPY go.mod ./
+
+# Download all dependencies
+RUN go mod download
+
+# Copy the source from the current directory to the working directory inside the container
+COPY . ./
+
 
 # Exposed port
 EXPOSE 8010
